@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+:root {
+  .display-md-show {
+    display: none;
+  }
+
+  .text-align-sm-center {
+    text-align: center;
+  }
+
+  @include mq(small) {
+    .display-md-show {
+      display: initial;
+    }
+
+    .text-align-sm-center {
+      text-align: initial;
+    }
+  }
+}

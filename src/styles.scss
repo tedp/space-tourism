@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@use "app/sass/base/";
+@use "app/sass/utilities";
+@use "app/sass/components";
+@use "app/sass/layouts";
+@use "app/sass/vendor/prism.css";

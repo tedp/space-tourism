@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+@each $size, $value in $sizes {
+  .padding-block-#{$size} {
+    padding-block: var(--padding-block-#{$size});
+  }
+}

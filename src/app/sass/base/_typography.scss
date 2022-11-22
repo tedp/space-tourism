@@ -1,0 +1,95 @@
+* {
+  font-variation-settings: "wght" var(--font-weight, 375),
+    "wdth" var(--font-width, 80);
+}
+
+:root {
+  font-size: 14.4px;
+}
+
+body {
+  font-size: var(--fs-400);
+  font-family: "Bellefair", sans-serif;
+  color: var(--clr-neutral-700);
+  letter-spacing: -0.5px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  --font-weight: 400;
+  --font-width: 80;
+  font-weight: normal;
+  font-stretch: 100%;
+  line-height: 1.1;
+  color: var(--clr-primary-400);
+}
+
+.title {
+  font-size: clamp(var(--fs-600), calc(1rem + 5vw), 5rem);
+}
+
+.article-snippet-title {
+  --font-weight: 600;
+}
+
+time + p {
+  font-size: 1.25em;
+  margin: 2em 0 1em !important;
+}
+
+// This is setting the font-sizes
+// based on the ones in the abstract
+// folder, go there to make updates
+
+h1,
+.h1 {
+  font-size: var(--fs-700);
+}
+
+h2,
+.h2 {
+  --flow-spacer: 1.5em;
+  font-size: var(--fs-600);
+}
+h3,
+.h3 {
+  --flow-spacer: 1.5em;
+  font-size: var(--fs-500);
+}
+
+h4,
+.h4 {
+  font-size: var(--fs-400);
+}
+
+small,
+.text-small {
+  font-size: var(--fs-300);
+}
+
+strong {
+  --font-weight: 500;
+  font-weight: normal;
+}
+
+a {
+  color: var(--clr, var(--clr-neutral-700));
+
+  &:hover,
+  &:focus {
+    color: var(--clr-neutral-700);
+    text-decoration: none;
+  }
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+p:not([class]),
+ul:not([class]),
+li:not([class]) {
+  max-width: 60ch;
+}

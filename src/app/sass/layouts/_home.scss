@@ -1,0 +1,113 @@
+@use '../abstracts' as *;
+
+// Hero section
+
+.hero {
+  position: relative;
+  z-index: -100;
+
+  padding-bottom: var(--size-800);
+}
+
+.hero-columns {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    'next-image'
+    'next-generation';
+}
+
+.hero-columns div:nth-child(1) {
+  grid-area: next-generation;
+}
+
+.hero-columns div:nth-child(2) {
+  grid-area: next-image;
+}
+
+.hero__image {
+  background-image: url('../img/bg-intro-mobile.svg');
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: bottom 12rem right -3rem;
+}
+
+@media screen and (min-width: map-get($breakpoints, small)) {
+  .hero-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 'next-generation next-image';
+  }
+
+  .hero__image {
+    position: relative;
+
+    padding-bottom: var(--size-800);
+    background-image: url('../img/bg-intro-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 43rem;
+    background-position: bottom -5rem right -12rem;
+  }
+
+  .hero__image img {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 5.5rem;
+    top: -4.5rem;
+    right: -0.5rem;
+  }
+}
+
+// Sales pitch section
+
+.sales-pitch {
+  text-align: center;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: map-get($breakpoints, small)) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .sales-pitch__text {
+    text-align: left;
+  }
+}
+
+.sales-pitch__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-500);
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Articles
+
+.articles__icon {
+  height: 12.5rem;
+  margin: auto;
+  // position: absolute;
+  // height: 5rem;
+  // inset: 0;
+}
+
+.articles__text {
+  padding: 3rem;
+}
+
+@media screen and (min-width: map-get($breakpoints, small)) {
+  .articles__text {
+    padding: 1rem;
+  }
+}
