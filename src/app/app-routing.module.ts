@@ -4,10 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'design-system',
-    loadChildren: () =>
-      import('./design-system/design-system.module').then(
-        (m) => m.DesignSystemModule
-      ),
+    loadChildren: () => import('./design-system/design-system.routes'),
   },
 ];
 
