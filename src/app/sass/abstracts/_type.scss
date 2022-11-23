@@ -1,12 +1,14 @@
 $type-scale: (
   small: (
     // Major third
+    200: 0.875rem,
     300: 1rem,
     400: 1.125rem,
-    500: 1.563rem,
-    600: 1.953rem,
-    700: 2.441rem,
-    800: 3.052rem
+    500: 1.75rem,
+    600: 2rem,
+    700: 3.5rem,
+    800: 6.25rem,
+    900: 9.375rem,
   ),
   big: (
     // Augmented fourth
@@ -15,6 +17,6 @@ $type-scale: (
     500: 2rem,
     600: 2.827rem,
     700: 4rem,
-    800: 5.653rem
-  )
+    800: 5.653rem,
+  ),
 );

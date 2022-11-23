@@ -1,10 +1,15 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 :root {
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+
   --section-spacing: 3.5rem;
   @include mq(medium) {
     --section-spacing: 7rem;
   }
+
   @each $color, $shade in $colors {
     @each $prop, $value in $shade {
       --clr-#{$color}-#{$prop}: #{$value};
