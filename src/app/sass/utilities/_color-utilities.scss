@@ -3,15 +3,15 @@
 @each $color, $shade in $colors {
   @each $prop, $value in $shade {
     .text-#{$color}-#{$prop} {
-      color: var(--clr-#{$color}-#{$prop});
+      color: hsl(var(--clr-#{$color}-#{$prop}));
     }
 
     .bg-#{$color}-#{$prop} {
-      background-color: var(--clr-#{$color}-#{$prop});
+      background-color: hsl(var(--clr-#{$color}-#{$prop}));
     }
   }
 }
 
 .primary {
-  --clr: var(--clr-primary-400);
+  --clr: hsl(var(--clr-primary-400));
 }
