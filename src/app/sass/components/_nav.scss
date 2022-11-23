@@ -1,0 +1,30 @@
+.primary-navigation {
+  --gap: 8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation a {
+  --underline-gap: 8rem;
+  text-decoration: none;
+
+  & > span {
+    font-weight: 700;
+    margin-right: 0.5em;
+  }
+}
+
+.underline-indicators > * {
+  padding: var(--underline-gap, 1rem) 0;
+  border-bottom: 0.2rem solid hsl(var(--clr-wh1te-400) / 0);
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-color: hsl(var(--clr-wh1te-400) / 0.5);
+}
+
+.underline-indicators > .active {
+  border-color: hsl(var(--clr-wh1te-400) / 1);
+}
