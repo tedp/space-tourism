@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-import { NavComponent } from './components';
+import {
+  NavComponent,
+  TabsComponent,
+  SliderLargeComponent,
+  SliderSmallComponent,
+} from './components';
 
 @Component({
   selector: 'app-design-system',
   standalone: true,
-  imports: [NavComponent],
+  imports: [
+    NavComponent,
+    TabsComponent,
+    SliderSmallComponent,
+    SliderLargeComponent,
+  ],
   templateUrl: './design-system.component.html',
   styleUrls: ['./design-system.component.scss'],
 })

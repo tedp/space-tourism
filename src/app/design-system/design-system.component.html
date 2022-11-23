@@ -129,55 +129,12 @@
       </div>
 
       <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
-        <!-- Tabs -->
-        <div role="tablist" class="tab-list underline-indicators flex">
-          <button
-            role="tab"
-            aria-selected="true"
-            class="uppercase ff-sans-cond text-light-400 bg-dark-400 letter-spacing-2"
-          >
-            Moon
-          </button>
-          <button
-            role="tab"
-            aria-selected="false"
-            class="uppercase ff-sans-cond text-light-400 bg-dark-400 letter-spacing-2"
-          >
-            Mars
-          </button>
-          <button
-            role="tab"
-            aria-selected="false"
-            class="uppercase ff-sans-cond text-light-400 bg-dark-400 letter-spacing-2"
-          >
-            Europa
-          </button>
-        </div>
-
+        <!-- Tabs 14.10.0 -->
+        <app-tabs></app-tabs>
         <!-- Dots -->
-        <div class="dot-indicators flex">
-          <button aria-selected="true">
-            <span class="sr-only">Slide title</span>
-          </button>
-          <button aria-selected="false">
-            <span class="sr-only">Slide title</span>
-          </button>
-          <button aria-selected="false">
-            <span class="sr-only">Slide title</span>
-          </button>
-        </div>
+        <app-slider-small></app-slider-small>
         <!-- Numbers -->
-        <div class="number-indicators flex">
-          <button class="text-wh1te-400 fs-600" aria-selected="true">
-            <span>1</span>
-          </button>
-          <button class="text-wh1te-400 fs-600" aria-selected="false">
-            <span>2</span>
-          </button>
-          <button class="text-wh1te-400 fs-600" aria-selected="false">
-            <span>3</span>
-          </button>
-        </div>
+        <app-slider-large></app-slider-large>
       </div>
     </div>
   </section>
