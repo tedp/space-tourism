@@ -1,19 +1,12 @@
 <div>
   <nav>
     <ul class="primary-navigation underline-indicators flex">
-      <li class="active">
-        <a class="uppercase text-wh1te-400 letter-spacing-2" href="#"
-          ><span>01</span>Active</a
-        >
-      </li>
-      <li>
-        <a class="uppercase text-wh1te-400 letter-spacing-2" href="#"
-          ><span>02</span>Hovered</a
-        >
-      </li>
-      <li>
-        <a class="uppercase text-wh1te-400 letter-spacing-2" href="#"
-          ><span>03</span>Idle</a
+      <li class="active" *ngFor="let navLink of navLinks; let i = index">
+        <a
+          class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2"
+          href="#"
+          ><span>{{ i }}</span
+          >{{ navLink.title }}</a
         >
       </li>
     </ul>
