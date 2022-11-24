@@ -29,8 +29,14 @@
       @each $prop, $value in $property {
         --fs-#{$prop}: #{$value};
       }
+    } @else if $screen-size == medium {
+      @include mq(medium) {
+        @each $prop, $value in $property {
+          --fs-#{$prop}: #{$value};
+        }
+      }
     } @else {
-      @include mq(small) {
+      @include mq(big) {
         @each $prop, $value in $property {
           --fs-#{$prop}: #{$value};
         }
