@@ -1,14 +1,21 @@
-<div>
-  <nav>
-    <ul class="primary-navigation underline-indicators flex">
-      <li *ngFor="let navLink of navLinks; let i = index">
-        <a
-          class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2"
-          href="#"
-          ><span>{{ i }}</span
-          >{{ navLink.title }}</a
-        >
-      </li>
-    </ul>
-  </nav>
-</div>
+<button
+  class="mobile-nav-toggle"
+  aria-controls="primary-navigation"
+  aria-expanded="false"
+>
+  <span class="sr-only">Menu</span>
+</button>
+
+<nav>
+  <ul
+    id="primary-navigation"
+    class="primary-navigation underline-indicators flex"
+  >
+    <li *ngFor="let navLink of navLinks; let i = index">
+      <a class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2" href="#"
+        ><span>{{ i }}</span
+        >{{ navLink.title }}</a
+      >
+    </li>
+  </ul>
+</nav>
