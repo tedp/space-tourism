@@ -1,3 +1,5 @@
+@use "../sass/abstracts" as *;
+
 :host {
   display: block;
   height: 100vh;
@@ -6,4 +8,21 @@
 .home {
   display: grid;
   grid-template-rows: min-content 1fr;
+
+  background-size: cover;
+  background-position: bottom center;
+  background-image: url(../../assets/home/background-home-mobile.jpg);
+}
+
+@include mq(medium) {
+  .home {
+    background-position: center center;
+    background-image: url(../../assets/home/background-home-tablet.jpg);
+  }
+}
+
+@include mq(big) {
+  .home {
+    background-image: url(../../assets/home/background-home-desktop.jpg);
+  }
 }
