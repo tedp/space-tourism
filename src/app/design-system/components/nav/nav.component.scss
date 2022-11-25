@@ -2,6 +2,10 @@
   display: block;
 }
 
+.underline-indicators a {
+  padding: var(--underline-gap, 1rem) 0;
+}
+
 @media (max-width: 35rem) {
   .primary-navigation--open {
     transform: translateX(0);
