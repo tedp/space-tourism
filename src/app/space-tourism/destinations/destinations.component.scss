@@ -1,3 +1,13 @@
+@use "../../sass/abstracts" as *;
+
 :host {
   display: block;
+  height: 100%;
+}
+
+@include mq(big) {
+  .grid-container--destinations {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }

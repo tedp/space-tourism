@@ -16,13 +16,13 @@
     "
   >
     <li
-      [ngClass]="selectedNavIndex === i ? 'active' : ''"
       *ngFor="let navLink of navLinks; let i = index"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
     >
       <a
         class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2"
         [routerLink]="navLinks[i].link"
-        routerLinkActive
         href="#"
         ><span aria-hidden="true">{{ i }}</span
         >{{ navLink.title }}</a
