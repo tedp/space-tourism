@@ -17,7 +17,7 @@ export class SpaceTourismComponent {
   selectedNavIndex = 0;
 
   navLinks: NavLink[] = [
-    { title: 'Home', link: 'intro' },
+    { title: 'Home', link: '' },
     { title: 'Destinations', link: 'destinations' },
     { title: 'Crew', link: 'crew' },
     { title: 'Technology', link: 'technology' },

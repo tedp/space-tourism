@@ -1,21 +1,53 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 
-import { NavComponent, NavLink } from './nav.component';
-import { CommonModule } from '@angular/common';
 import { By } from '@angular/platform-browser';
+import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRoute } from '@angular/router';
+import { NavComponent, NavLink } from './nav.component';
+
+@Component({
+  selector: 'test-host',
+  template: `
+    <app-nav
+      [navLinks]="navLinks"
+      [selectedNavIndex]="selectedNavIndex"
+      (selectedNavChange)="onSelectedNavChanged($event)"
+    ></app-nav>
+  `,
+})
+export class TestHostComponent {
+  selectedNavIndex = 1;
+  navLinks: NavLink[] = [
+    { title: 'nav1', link: 'link-nav1' },
+    { title: 'nav2', link: 'link-nav2' },
+  ];
+
+  onSelectedNavChanged(selectedNavIndex: number) {
+    this.selectedNavIndex = selectedNavIndex;
+  }
+}
 
 describe('NavComponent', () => {
   let testHostComponent: TestHostComponent;
   let component: NavComponent;
   let fixture: ComponentFixture<TestHostComponent>;
+  let router: Router;
+
+  const routes: Routes = [
+    { path: 'link-nav1', component: TestHostComponent },
+    { path: 'link-nav2', component: TestHostComponent },
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, NavComponent],
       declarations: [TestHostComponent],
+      imports: [RouterTestingModule.withRoutes(routes), NavComponent],
       providers: [
         {
           provide: ActivatedRoute,
@@ -35,6 +67,7 @@ describe('NavComponent', () => {
     component = fixture.debugElement.query(
       By.directive(NavComponent)
     ).componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -43,44 +76,22 @@ describe('NavComponent', () => {
   });
 
   describe('selected navigation', () => {
-    it('when navigation selected should emit selected navigation', () => {
-      jest.spyOn(component.selectedNavChange, 'emit');
+    it('when initialise the selected nav index is 1', () => {
+      expect(component.selectedNavIndex).toEqual(1);
+    });
+
+    it('when navigation selected should emit selected navigation', fakeAsync(() => {
+      jest.spyOn(router, 'navigate');
       const navItems = fixture.debugElement.queryAll(
         By.css('.primary-navigation a')
       );
 
-      expect(component.selectedNavIndex).toEqual(0);
-
-      navItems[1].nativeElement.click();
+      navItems[0].nativeElement.click();
+      tick();
       fixture.detectChanges();
 
-      const selectedNav = fixture.debugElement.query(By.css('.active'));
-
       expect(navItems.length).toEqual(2);
-      expect(component.selectedNavChange.emit).toHaveBeenCalledWith(1);
-      expect(component.selectedNavIndex).toEqual(1);
-    });
+      // expect(router.url).toEqual('');
+    }));
   });
 });
-
-@Component({
-  selector: 'test-host',
-  template: `
-    <app-nav
-      [navLinks]="navLinks"
-      [selectedNavIndex]="selectedNavIndex"
-      (selectedNavChange)="onSelectedNavChanged($event)"
-    ></app-nav>
-  `,
-})
-export class TestHostComponent {
-  selectedNavIndex = 0;
-  navLinks: NavLink[] = [
-    { title: 'nav1', link: 'link-nav1' },
-    { title: 'nav2', link: 'link-nav2' },
-  ];
-
-  onSelectedNavChanged(selectedNavIndex: number) {
-    this.selectedNavIndex = selectedNavIndex;
-  }
-}
