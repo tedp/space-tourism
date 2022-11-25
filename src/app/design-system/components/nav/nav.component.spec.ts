@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   ComponentFixture,
@@ -7,67 +8,40 @@ import {
 } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
-import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavComponent, NavLink } from './nav.component';
 
 @Component({
-  selector: 'test-host',
-  template: `
-    <app-nav
-      [navLinks]="navLinks"
-      [selectedNavIndex]="selectedNavIndex"
-      (selectedNavChange)="onSelectedNavChanged($event)"
-    ></app-nav>
-  `,
+  selector: 'dummy-component',
+  template: ``,
 })
-export class TestHostComponent {
-  selectedNavIndex = 1;
-  navLinks: NavLink[] = [
-    { title: 'nav1', link: 'link-nav1' },
-    { title: 'nav2', link: 'link-nav2' },
-  ];
-
-  onSelectedNavChanged(selectedNavIndex: number) {
-    this.selectedNavIndex = selectedNavIndex;
-  }
-}
+class DummyComponent {}
 
 describe('NavComponent', () => {
-  let testHostComponent: TestHostComponent;
   let component: NavComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   let router: Router;
+  let location: Location;
 
   const routes: Routes = [
-    { path: 'link-nav1', component: TestHostComponent },
-    { path: 'link-nav2', component: TestHostComponent },
+    { path: 'link-nav1', component: DummyComponent },
+    { path: 'link-nav2', component: DummyComponent },
   ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestHostComponent],
+      declarations: [TestHostComponent, DummyComponent],
       imports: [RouterTestingModule.withRoutes(routes), NavComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              routeConfig: {
-                children: ['', 'destinations'],
-              },
-            },
-          },
-        },
-      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
-    testHostComponent = fixture.componentInstance;
     component = fixture.debugElement.query(
       By.directive(NavComponent)
     ).componentInstance;
     router = TestBed.inject(Router);
+    location = TestBed.inject(Location);
+    router.initialNavigation();
     fixture.detectChanges();
   });
 
@@ -88,10 +62,31 @@ describe('NavComponent', () => {
 
       navItems[0].nativeElement.click();
       tick();
-      fixture.detectChanges();
 
       expect(navItems.length).toEqual(2);
-      // expect(router.url).toEqual('');
+      expect(location.path()).toEqual('/link-nav1');
     }));
   });
 });
+
+@Component({
+  selector: 'test-host',
+  template: `
+    <app-nav
+      [navLinks]="navLinks"
+      [selectedNavIndex]="selectedNavIndex"
+      (selectedNavChange)="onSelectedNavChanged($event)"
+    ></app-nav>
+  `,
+})
+class TestHostComponent {
+  selectedNavIndex = 1;
+  navLinks: NavLink[] = [
+    { title: 'nav1', link: 'link-nav1' },
+    { title: 'nav2', link: 'link-nav2' },
+  ];
+
+  onSelectedNavChanged(selectedNavIndex: number) {
+    this.selectedNavIndex = selectedNavIndex;
+  }
+}

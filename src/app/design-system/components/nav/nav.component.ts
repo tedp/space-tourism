@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 export interface NavLink {
   link: string;
@@ -19,8 +19,6 @@ export class NavComponent {
   @Input() selectedNavIndex = 0;
 
   menuOpen = false;
-
-  constructor(private route: ActivatedRoute) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
