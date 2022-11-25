@@ -14,10 +14,16 @@ import {
   styleUrls: ['./space-tourism.component.scss'],
 })
 export class SpaceTourismComponent {
+  selectedNavIndex = 0;
+
   navLinks: NavLink[] = [
     { title: 'Home', link: 'intro' },
     { title: 'Destinations', link: 'destinations' },
     { title: 'Crew', link: 'crew' },
     { title: 'Technology', link: 'technology' },
   ];
+
+  onSelectedNavChanged(selectedNavIndex: number) {
+    this.selectedNavIndex = selectedNavIndex;
+  }
 }

@@ -15,8 +15,14 @@
       menuOpen ? 'primary-navigation--open' : 'primary-navigation--close'
     "
   >
-    <li *ngFor="let navLink of navLinks; let i = index">
-      <a class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2" href="#"
+    <li
+      [ngClass]="selectedNavIndex === i ? 'active' : ''"
+      *ngFor="let navLink of navLinks; let i = index"
+    >
+      <a
+        class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2"
+        (click)="navLinkSelected(i)"
+        href="#"
         ><span aria-hidden="true">{{ i }}</span
         >{{ navLink.title }}</a
       >

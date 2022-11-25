@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 export interface NavLink {
   link: string;
@@ -15,12 +16,19 @@ export interface NavLink {
 })
 export class NavComponent {
   @Input() navLinks: NavLink[] = [];
+  @Input() selectedNavIndex = 0;
+
+  @Output() selectedNavChange = new EventEmitter<number>();
 
   menuOpen = false;
 
-  toggleMenu() {
-    console.log('toggle');
+  constructor(private route: ActivatedRoute) {}
 
+  toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  navLinkSelected(navLinkIndex: number) {
+    this.selectedNavChange.emit(navLinkIndex);
   }
 }
