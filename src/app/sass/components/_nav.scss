@@ -39,6 +39,7 @@
 
   .mobile-nav-toggle {
     display: block;
+    cursor: pointer;
     position: absolute;
     z-index: 2000;
     right: 1rem;
@@ -46,6 +47,7 @@
     background: transparent;
     background-image: url(../../../assets/shared/icon-hamburger.svg);
     background-repeat: no-repeat;
+    background-position: center;
     width: 1.5rem;
     aspect-ratio: 1;
     border: 0;

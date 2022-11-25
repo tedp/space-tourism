@@ -15,4 +15,12 @@ export interface NavLink {
 })
 export class NavComponent {
   @Input() navLinks: NavLink[] = [];
+
+  menuOpen = false;
+
+  toggleMenu() {
+    console.log('toggle');
+
+    this.menuOpen = !this.menuOpen;
+  }
 }

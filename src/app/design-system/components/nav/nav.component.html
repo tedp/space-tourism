@@ -1,7 +1,8 @@
 <button
   class="mobile-nav-toggle"
   aria-controls="primary-navigation"
-  aria-expanded="false"
+  [attr.aria-expanded]="menuOpen"
+  (click)="toggleMenu()"
 >
   <span class="sr-only">Menu</span>
 </button>
@@ -10,6 +11,9 @@
   <ul
     id="primary-navigation"
     class="primary-navigation underline-indicators flex"
+    [ngClass]="
+      menuOpen ? 'primary-navigation--open' : 'primary-navigation--close'
+    "
   >
     <li *ngFor="let navLink of navLinks; let i = index">
       <a class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2" href="#"
