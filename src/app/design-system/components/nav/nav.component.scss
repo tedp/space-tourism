@@ -22,3 +22,13 @@
     outline-offset: 5px;
   }
 }
+
+@media (min-width: 35em) and (max-width: 45em) {
+  .primary-navigation {
+    padding-inline: 3rem;
+  }
+
+  .primary-navigation a > span {
+    display: none;
+  }
+}

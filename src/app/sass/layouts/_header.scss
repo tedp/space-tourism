@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+.logo {
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+// @include mq(medium) {
+//   .primary-header {
+//     margin-block-start: 2.5rem;
+//   }
+// }

@@ -1,11 +1,15 @@
 @use "../../sass/abstracts" as *;
 
 .primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
   background: hsl(var(--clr-dark) / 0.95);
+
+  margin-block: clamp(0rem, 3vw, 2.5rem);
+  padding-inline: clamp(3rem, 7vw, 7rem);
 }
 
 // not working in firefox
