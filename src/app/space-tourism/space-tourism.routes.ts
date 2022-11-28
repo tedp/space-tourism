@@ -16,6 +16,14 @@ export default [
         path: 'destinations',
         component: DestinationsComponent,
       },
+      {
+        path: 'crew',
+        component: DestinationsComponent,
+      },
+      {
+        path: 'technology',
+        component: DestinationsComponent,
+      },
     ],
   },
 ] as Routes;

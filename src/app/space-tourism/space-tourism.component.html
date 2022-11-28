@@ -1,6 +1,10 @@
 <a class="skip-to-content" href="#main">Skip to content</a>
 
-<div class="home" style="height: 100%">
+<div
+  class="home"
+  style="height: 100%"
+  [ngClass]="getHomeClass(selectedNavIndex$ | async)"
+>
   <header class="primary-header flex">
     <div>
       <img
@@ -10,10 +14,7 @@
       />
     </div>
 
-    <app-nav
-      [navLinks]="navLinks"
-      [selectedNavIndex]="selectedNavIndex"
-    ></app-nav>
+    <app-nav [navLinks]="navLinks"></app-nav>
   </header>
 
   <main id="main">

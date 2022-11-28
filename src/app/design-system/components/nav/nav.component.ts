@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 export interface NavLink {
   link: string;
@@ -16,11 +16,11 @@ export interface NavLink {
 })
 export class NavComponent {
   @Input() navLinks: NavLink[] = [];
-  @Input() selectedNavIndex = 0;
 
   menuOpen = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    console.log('toggle', this.menuOpen);
   }
 }

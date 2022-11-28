@@ -50,12 +50,9 @@ describe('NavComponent', () => {
   });
 
   describe('selected navigation', () => {
-    it('when initialise the selected nav index is 1', () => {
-      expect(component.selectedNavIndex).toEqual(1);
-    });
-
-    it('when navigation selected should emit selected navigation', fakeAsync(() => {
+    it('when navigation selected should change selected navigation', fakeAsync(() => {
       jest.spyOn(router, 'navigate');
+      component.menuOpen = true;
       const navItems = fixture.debugElement.queryAll(
         By.css('.primary-navigation a')
       );
@@ -65,28 +62,18 @@ describe('NavComponent', () => {
 
       expect(navItems.length).toEqual(2);
       expect(location.path()).toEqual('/link-nav1');
+      expect(component.menuOpen).toEqual(false);
     }));
   });
 });
 
 @Component({
   selector: 'test-host',
-  template: `
-    <app-nav
-      [navLinks]="navLinks"
-      [selectedNavIndex]="selectedNavIndex"
-      (selectedNavChange)="onSelectedNavChanged($event)"
-    ></app-nav>
-  `,
+  template: ` <app-nav [navLinks]="navLinks"></app-nav> `,
 })
 class TestHostComponent {
-  selectedNavIndex = 1;
   navLinks: NavLink[] = [
     { title: 'nav1', link: 'link-nav1' },
     { title: 'nav2', link: 'link-nav2' },
   ];
-
-  onSelectedNavChanged(selectedNavIndex: number) {
-    this.selectedNavIndex = selectedNavIndex;
-  }
 }
