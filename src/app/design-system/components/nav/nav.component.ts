@@ -21,6 +21,5 @@ export class NavComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
-    console.log('toggle', this.menuOpen);
   }
 }
