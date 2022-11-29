@@ -1,3 +1,5 @@
+@use "../../sass/abstracts" as *;
+
 .numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
@@ -9,4 +11,11 @@
   margin-right: 0.5em;
   font-weight: 700;
   color: hsl(var(--clr-wh1te-400) / 0.25);
+}
+
+@include mq(medium) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
 }
