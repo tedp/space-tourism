@@ -14,7 +14,13 @@ export default [
       },
       {
         path: 'destinations',
-        component: DestinationsComponent,
+        children: [
+          { path: '', redirectTo: '/destinations/moon', pathMatch: 'full' },
+          {
+            path: ':planet',
+            component: DestinationsComponent,
+          },
+        ],
       },
       {
         path: 'crew',

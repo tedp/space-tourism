@@ -29,10 +29,10 @@ export class SpaceTourismComponent {
   }
 
   navLinks: NavLink[] = [
-    { title: 'Home', link: '' },
-    { title: 'Destinations', link: 'destinations' },
-    { title: 'Crew', link: 'crew' },
-    { title: 'Technology', link: 'technology' },
+    { title: 'Home', link: '', exact: true },
+    { title: 'Destinations', link: 'destinations', exact: false },
+    { title: 'Crew', link: 'crew', exact: false },
+    { title: 'Technology', link: 'technology', exact: false },
   ];
 
   getSelectedNavIndex(url: string): number {
@@ -48,6 +48,7 @@ export class SpaceTourismComponent {
     } else {
       navIndex = this.getSelectedNavIndex(this.router.routerState.snapshot.url);
     }
-    return `home--${(this, this.navLinks[navIndex].link)}`;
+    return '';
+    // return `home--${(this, this.navLinks[navIndex].link)}`;
   }
 }

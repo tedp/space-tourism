@@ -18,7 +18,7 @@
     <li
       *ngFor="let navLink of navLinks; let i = index"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLinkActiveOptions]="{ exact: navLink.exact }"
     >
       <a
         class="ff-sans-cond uppercase text-wh1te-400 letter-spacing-2"
