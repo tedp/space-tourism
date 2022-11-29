@@ -15,12 +15,6 @@
   background-image: url(../../assets/home/background-home-mobile.jpg);
 }
 
-.home.home--destinations-moon {
-  background-image: url(../../assets/destination/image-moon.png);
-  background-position: center;
-  background-size: auto;
-}
-
 @include mq(medium) {
   .home {
     background-position: center center;
