@@ -27,7 +27,11 @@ export class SpaceTourismComponent {
     { title: 'Technology', link: 'technology', exact: false },
   ];
 
-  getBackgroundImage(): { [klass: string]: any } | null {
+  isHomePage() {
+    return this.router.routerState.snapshot.url === '/';
+  }
+
+  private getBackgroundImage(): { [klass: string]: any } | null {
     const backgroundImage = this.contenService.getBackgroundImage(
       this.router.routerState.snapshot.url
     );

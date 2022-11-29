@@ -5,9 +5,35 @@
   height: 100%;
 }
 
-@include mq(big) {
-  .grid-container--destinations {
-    padding-bottom: max(6rem, 20vh);
-    align-items: end;
-  }
+.grid-container--destination {
+  --flow-space: 2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "tabs"
+    "content";
+}
+
+.grid-container--destination > img {
+  grid-area: image;
+  max-width: 60%;
+}
+
+.grid-container--destination > app-tabs {
+  grid-area: tabs;
+}
+
+.grid-container--destination > .destination-info {
+  grid-area: content;
+}
+
+.destination-meta {
+  flex-direction: column;
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid hsl(var(--clr-wh1te-400) / 0.1);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
 }
