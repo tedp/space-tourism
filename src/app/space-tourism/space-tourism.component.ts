@@ -27,8 +27,9 @@ export class SpaceTourismComponent {
     { title: 'Technology', link: 'technology', exact: false },
   ];
 
-  isHomePage() {
-    return this.router.routerState.snapshot.url === '/';
+  get selectedRouteClass() {
+    const routeSegment = this.router.routerState.snapshot.url.split('/')[1];
+    return routeSegment === '' ? 'home' : routeSegment;
   }
 
   private getBackgroundImage(): { [klass: string]: any } | null {

@@ -3,6 +3,7 @@
   padding: var(--underline-gap, 1rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-wh1te-400) / 0);
+  background-color: transparent;
 }
 
 .underline-indicators > *:hover,

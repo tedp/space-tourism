@@ -5,14 +5,24 @@
   height: 100vh;
 }
 
-.home {
+.space-tourism {
   display: grid;
   grid-template-rows: min-content 1fr;
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
+}
+
+.home {
   background-image: url(../../assets/home/background-home-mobile.jpg);
+}
+
+.destinations {
+  background-image: url(../../assets/destination/background-destination-mobile.jpg);
+}
+.crew {
+  background-image: url(../../assets/crew/background-crew-mobile.jpg);
 }
 
 @include mq(medium) {
@@ -20,10 +30,30 @@
     background-position: center center;
     background-image: url(../../assets/home/background-home-tablet.jpg);
   }
+
+  .destinations {
+    background-position: center center;
+    background-image: url(../../assets/destination/background-destination-tablet.jpg);
+  }
+
+  .crew {
+    background-position: center center;
+    background-image: url(../../assets/crew/background-crew-tablet.jpg);
+  }
 }
 
 @include mq(big) {
   .home {
     background-image: url(../../assets/home/background-home-desktop.jpg);
+  }
+
+  .destinations {
+    background-position: center center;
+    background-image: url(../../assets/destination/background-destination-desktop.jpg);
+  }
+
+  .crew {
+    background-position: center center;
+    background-image: url(../../assets/crew/background-crew-desktop.jpg);
   }
 }
