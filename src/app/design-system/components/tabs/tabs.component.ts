@@ -21,12 +21,18 @@ export interface Tab {
 export class TabsComponent implements OnInit {
   @Input() tabs: Tab[] = [];
   @Input() selectedTabIndex = 0;
+  @Input() selectedTabName?: string;
 
   @Output() selectedTabChanged = new EventEmitter<number>();
 
   tabFocus = 0;
 
   ngOnInit() {
+    if (this.selectedTabName) {
+      this.selectedTabIndex = this.tabs.findIndex(
+        (tab) => tab.name === this.selectedTabName
+      );
+    }
     this.tabFocus = this.selectedTabIndex;
   }
 

@@ -13,6 +13,7 @@
 
   <app-tabs
     [tabs]="destinationTabs"
+    [selectedTabName]="selectedPlanet$ | async"
     (selectedTabChanged)="selectPlanet($event)"
   ></app-tabs>
 
