@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentServiceService } from '../services/content-service.service';
+import { Router } from '@angular/router';
 import {
   TabsComponent,
   Tab,
@@ -14,7 +15,10 @@ import {
   styleUrls: ['./destinations.component.scss'],
 })
 export class DestinationsComponent {
-  constructor(public contentService: ContentServiceService) {}
+  constructor(
+    public contentService: ContentServiceService,
+    private router: Router
+  ) {}
 
   destinationTabs: Tab[] = [
     { name: 'moon' },
@@ -23,5 +27,10 @@ export class DestinationsComponent {
     { name: 'titan' },
   ];
 
-  selectPlanet(planetIndex: number) {}
+  selectPlanet(planetIndex: number) {
+    this.router.navigate([
+      'destinations',
+      this.destinationTabs[planetIndex].name,
+    ]);
+  }
 }

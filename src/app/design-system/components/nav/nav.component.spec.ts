@@ -73,7 +73,7 @@ describe('NavComponent', () => {
 })
 class TestHostComponent {
   navLinks: NavLink[] = [
-    { title: 'nav1', link: 'link-nav1' },
-    { title: 'nav2', link: 'link-nav2' },
+    { title: 'nav1', link: 'link-nav1', exact: true },
+    { title: 'nav2', link: 'link-nav2', exact: true },
   ];
 }

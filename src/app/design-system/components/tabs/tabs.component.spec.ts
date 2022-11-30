@@ -11,8 +11,8 @@ describe('TabsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabsComponent],
       declarations: [TestHostComponent],
+      imports: [TabsComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
@@ -34,13 +34,14 @@ describe('TabsComponent', () => {
 
     it('when tab selected should emit selected tab name', () => {
       jest.spyOn(component.selectedTabChanged, 'emit');
-      const tabItems = fixture.debugElement.queryAll(By.css('.tablist button'));
-
-      tabItems[0].nativeElement.click();
+      const tabItems = fixture.debugElement.queryAll(
+        By.css('.tab-list button')
+      );
+      tabItems[1].nativeElement.click();
       fixture.detectChanges();
 
       expect(tabItems.length).toEqual(2);
-      expect(component.selectedTabChanged).toHaveBeenCalledWith('tab1');
+      expect(component.selectedTabChanged.emit).toHaveBeenCalledWith(1);
     });
   });
 });
@@ -49,10 +50,11 @@ describe('TabsComponent', () => {
   selector: 'test-host',
   template: `
     <app-tabs
-      [tabs]="tabs"
+      [tabs]="navLinks"
       [selectedTabIndex]="selectedTabIndex"
-      (selectedTabChanged)="onSelectedTabChanged($event)"
-    ></app-tabs>
+      (selectedTabChanged)="onSelectedNavChanged($event)"
+    >
+    </app-tabs>
   `,
 })
 export class TestHostComponent {

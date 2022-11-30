@@ -20,7 +20,7 @@ export interface Tab {
 })
 export class TabsComponent implements OnInit {
   @Input() tabs: Tab[] = [];
-  @Input() selectedTabIndex = 1;
+  @Input() selectedTabIndex = 0;
 
   @Output() selectedTabChanged = new EventEmitter<number>();
 
