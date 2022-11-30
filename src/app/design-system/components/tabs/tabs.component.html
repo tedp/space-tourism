@@ -1,4 +1,9 @@
-<div role="tablist" class="tab-list underline-indicators flex">
+<div
+  #tablist
+  role="tablist"
+  class="tab-list underline-indicators flex"
+  (keydown)="tablistKeyDown($event, tablist)"
+>
   <button
     *ngFor="let tab of tabs; let i = index"
     role="tab"

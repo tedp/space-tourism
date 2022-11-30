@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ElementRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export interface Tab {
@@ -16,4 +22,9 @@ export class TabsComponent {
   @Input() selectedTabIndex = 0;
 
   @Output() selectedTabChanged = new EventEmitter<string>();
+
+  tablistKeyDown(e: Event, tablist: HTMLDivElement) {
+    console.log(e);
+    console.log(tablist.children);
+  }
 }
