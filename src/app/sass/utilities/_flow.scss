@@ -1,3 +1,7 @@
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
+
+.flow--space-small {
+  --flow-space: 0.75rem;
+}

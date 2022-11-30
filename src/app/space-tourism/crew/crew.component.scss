@@ -17,7 +17,7 @@
     grid-area: title;
   }
 
-  & > img {
+  & > picture {
     grid-area: image;
     max-width: 60%;
     border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
@@ -35,7 +35,7 @@
 .crew-details {
   & > h2 {
     font-weight: 700;
-    color: hsl(var(--clr-wh1te-400) / 0.25);
+    color: hsl(var(--clr-wh1te-400) / 0.5);
   }
 }
 
@@ -61,7 +61,7 @@
       ". content image ."
       ". slider image .";
 
-    & > img {
+    & > picture {
       max-width: 80%;
     }
 
@@ -69,7 +69,7 @@
       justify-self: start;
     }
 
-    & > img {
+    & > picture {
       align-self: end;
     }
   }
