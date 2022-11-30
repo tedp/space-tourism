@@ -2,13 +2,15 @@
   #tablist
   role="tablist"
   class="tab-list underline-indicators flex"
-  (keydown)="tablistKeyDown($event, tablist)"
+  (keydown)="changeTabFocus($event, tablist)"
 >
   <button
     *ngFor="let tab of tabs; let i = index"
     role="tab"
     [attr.aria-selected]="i === selectedTabIndex"
+    [attr.tabIndex]="i === selectedTabIndex ? 0 : -1"
     class="uppercase ff-sans-cond text-light-400 letter-spacing-2"
+    (click)="selectTab(i)"
   >
     {{ tab.name }}
   </button>

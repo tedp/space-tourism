@@ -22,4 +22,6 @@ export class DestinationsComponent {
     { name: 'europa' },
     { name: 'titan' },
   ];
+
+  selectPlanet(planetIndex: number) {}
 }

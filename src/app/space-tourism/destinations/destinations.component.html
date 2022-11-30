@@ -11,7 +11,10 @@
     <img src="../assets/destination/image-moon.png" alt="the moon" />
   </picture>
 
-  <app-tabs [tabs]="destinationTabs"></app-tabs>
+  <app-tabs
+    [tabs]="destinationTabs"
+    (selectedTabChanged)="selectPlanet($event)"
+  ></app-tabs>
 
   <article class="destination-info flow">
     <h2 class="fs-800 uppercase ff-serif">Moon</h2>
