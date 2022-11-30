@@ -6,29 +6,44 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Tab } from '../../design-system/components/tabs/tabs.component';
 import { DestinationsComponent } from './destinations.component';
+import { MockState, MockStore, provideMockStore } from '@ngrx/store/testing';
+import { State, reducers } from '../../reducers/index';
+import { StoreModule, Store } from '@ngrx/store';
+import { selectRouteParam, selectRouteParams } from '../../router.selectors';
+import { CommonModule } from '@angular/common';
 
 describe('DestinationsComponent', () => {
   let component: DestinationsComponent;
   let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   let router: Router;
+  let store: MockStore<State>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TestHostComponent],
-      imports: [DestinationsComponent, RouterTestingModule],
+      imports: [
+        DestinationsComponent,
+        RouterTestingModule,
+        StoreModule.forRoot(reducers, { runtimeChecks: {} }),
+      ],
+      providers: [provideMockStore({ initialState: MockState })],
     })
       .overrideComponent(DestinationsComponent, {
-        set: { imports: [TabsComponent] },
+        set: { imports: [CommonModule, TabsComponent] },
       })
       .compileComponents();
+
+    router = TestBed.inject(Router);
+    store = TestBed.inject(Store<State>) as MockStore<State>;
+    store.overrideSelector(selectRouteParams, { planet: 'mars' });
 
     fixture = TestBed.createComponent(TestHostComponent);
     testHostComponent = fixture.componentInstance;
     component = fixture.debugElement.query(
       By.directive(DestinationsComponent)
     ).componentInstance;
-    router = TestBed.inject(Router);
+
     fixture.detectChanges();
   });
 
@@ -36,7 +51,13 @@ describe('DestinationsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // Use a route selector to get the current route for the planet
+  it('should select correct planet when planet based on the current route param', () => {
+    const tabsComponent: TabsComponent = fixture.debugElement.query(
+      By.directive(TabsComponent)
+    ).componentInstance;
+
+    expect(tabsComponent.selectedTabName).toEqual('mars');
+  });
 
   describe('planet selection', () => {
     it('should select correct planet when planet changes', () => {
@@ -61,7 +82,8 @@ describe('DestinationsComponent', () => {
 })
 export class TabsComponent {
   @Input() tabs: Tab[] = [];
-  @Input() selectedTabIndex = 1;
+  @Input() selectedTabIndex = 0;
+  @Input() selectedTabName?: string;
 
   @Output() selectedTabChanged = new EventEmitter<number>();
 

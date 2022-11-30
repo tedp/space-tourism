@@ -1,20 +1,15 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContentServiceService } from '../services/content-service.service';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
-import { State } from '../../reducers/index';
-import {
-  TabsComponent,
-  Tab,
-} from '../../design-system/components/tabs/tabs.component';
 import { Store } from '@ngrx/store';
+import { Observable, tap } from 'rxjs';
 import {
-  selectCurrentRoute,
-  selectFragment,
-  selectRouteParam,
-  selectRouteParams,
-} from 'src/app/router.selectors';
+  Tab,
+  TabsComponent,
+} from '../../design-system/components/tabs/tabs.component';
+import { State } from '../../reducers/index';
+import { ContentServiceService } from '../services/content-service.service';
+import { selectRouteParam } from '../../router.selectors';
 
 @Component({
   selector: 'app-destinations',
@@ -32,7 +27,6 @@ export class DestinationsComponent {
     private store: Store<State>
   ) {
     this.selectedPlanet$ = this.store.select(selectRouteParam('planet'));
-    // .pipe(map((planet) => console.log(planet)));
   }
 
   destinationTabs: Tab[] = [
