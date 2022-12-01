@@ -1,4 +1,4 @@
-.underline-indicators > * {
+.underline-indicator-style .underline-indicators > * {
   cursor: pointer;
   padding: var(--underline-gap, 0.5rem) 0;
   border: 0;
@@ -6,13 +6,13 @@
   background-color: transparent;
 }
 
-.underline-indicators > *:hover,
-.underline-indicators > *:focus {
+.underline-indicator-style .underline-indicators > *:hover,
+.underline-indicator-style .underline-indicators > *:focus {
   border-color: hsl(var(--clr-wh1te-400) / 0.5);
 }
 
-.underline-indicators > .active,
-.underline-indicators > [aria-selected="true"] {
+.underline-indicator-style .underline-indicators > .active,
+.underline-indicator-style .underline-indicators > [aria-selected="true"] {
   color: hsl(var(-clr-wh1te-400) / 1);
   border-color: hsl(var(--clr-wh1te-400) / 1);
 }

@@ -27,7 +27,7 @@
     grid-area: content;
   }
 
-  & > app-slider-small {
+  & > app-tabs {
     grid-area: slider;
   }
 }
@@ -65,7 +65,7 @@
       max-width: 80%;
     }
 
-    & > app-slider-small {
+    & > app-tabs {
       justify-self: start;
     }
 

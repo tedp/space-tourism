@@ -1,7 +1,7 @@
 <div
   #tablist
   role="tablist"
-  class="tab-list underline-indicators flex"
+  class="tab-list underline-indicators dot-indicators flex"
   (keydown)="changeTabFocus($event, tablist)"
 >
   <button
@@ -12,6 +12,6 @@
     class="uppercase ff-sans-cond text-light-400 letter-spacing-2"
     (click)="selectTab(i)"
   >
-    {{ tab.name }}
+    <span [ngClass]="!showTabLabels ? 'sr-only' : ''">{{ tab.name }}</span>
   </button>
 </div>

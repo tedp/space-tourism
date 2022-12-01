@@ -3,22 +3,33 @@
     <span aria-hidden="true">02</span> Meet your crew
   </h1>
 
-  <app-slider-small></app-slider-small>
+  <app-tabs
+    class="dot-indicators-style"
+    [tabs]="tabs"
+    [selectedTabName]="(selectedCrewName$ | async)!"
+    [showTabLabels]="false"
+    (selectedTabChanged)="selectCrew($event)"
+  ></app-tabs>
 
   <article class="crew-details flow">
     <header class="flow flow--space-small">
-      <h2 class="fs-600 ff-serif uppercase">Commander</h2>
-      <p class="fs-700 uppercase ff-serif">Douglas Hurley</p>
+      <h2 class="fs-600 ff-serif uppercase">
+        {{ (currentCrew$ | async)?.role }}
+      </h2>
+      <p class="fs-700 uppercase ff-serif">
+        {{ (currentCrew$ | async)?.name }}
+      </p>
     </header>
     <p>
-      Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
-      and former NASA astronaut. He launched into space for the third time as
-      commander of Crew Dragon Demo-2.
+      {{ (currentCrew$ | async)?.bio }}
     </p>
   </article>
 
   <picture>
     <source srcset="../assets/crew/image-douglas-hurley.png" type="image/png" />
-    <img src="../assets/crew/image-douglas-hurley.png" alt="Douglas Hurley" />
+    <img
+      src="../assets/crew/image-douglas-hurley.png"
+      [attr.alt]="(currentCrew$ | async)?.name"
+    />
   </picture>
 </div>

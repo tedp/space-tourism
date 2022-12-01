@@ -46,6 +46,10 @@ export class ContentServiceService {
     return contentData.destinations;
   }
 
+  getCrew() {
+    return contentData.crew;
+  }
+
   getBackgroundImage(
     url: string,
     orientation: 'portrait' | 'landscape' = 'portrait'

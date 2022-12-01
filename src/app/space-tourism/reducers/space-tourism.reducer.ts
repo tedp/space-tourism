@@ -1,15 +1,19 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import * as SpaceTourismActions from '../actions/space-tourism.actions';
-import { Destination } from '../services/content-service.service';
+import { Destination, Crew } from '../services/content-service.service';
 
 export interface State {
   destinations: Destination[];
+  crew: Crew[];
   currentDestinationName: string | undefined;
+  currentCrewName: string | undefined;
 }
 
 export const initialState: State = {
   destinations: [],
+  crew: [],
   currentDestinationName: undefined,
+  currentCrewName: undefined,
 };
 
 export const spaceTourismFeature = createFeature({
@@ -28,7 +32,17 @@ export const spaceTourismFeature = createFeature({
         ...state,
         currentDestinationName: destinationName,
       })
-    )
+    ),
+
+    on(SpaceTourismActions.loadCrew, (state, { crew }) => ({
+      ...state,
+      crew,
+    })),
+
+    on(SpaceTourismActions.loadCurrenCrewName, (state, { crewName }) => ({
+      ...state,
+      currentCrewName: crewName,
+    }))
   ),
 });
 
@@ -36,5 +50,7 @@ export const {
   name, // feature name
   reducer, // feature reducer
   selectDestinations, // feature selector
+  selectCrew, // feature selector
   selectCurrentDestinationName, // feature selector
+  selectCurrentCrewName, // feature selector
 } = spaceTourismFeature;
