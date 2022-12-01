@@ -42,6 +42,10 @@ export interface Technology extends Content {
 export class ContentServiceService {
   constructor() {}
 
+  getDestinations() {
+    return contentData.destinations;
+  }
+
   getBackgroundImage(
     url: string,
     orientation: 'portrait' | 'landscape' = 'portrait'

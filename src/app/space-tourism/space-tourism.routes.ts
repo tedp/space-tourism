@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { CrewComponent } from './crew/crew.component';
 import { DestinationsComponent } from './destinations/destinations.component';
+import { DestinationsGuard } from './guards/destinations.guard';
 import { IntroComponent } from './intro/intro.component';
 import { spaceTourismFeature } from './reducers/space-tourism.reducer';
 import { SpaceTourismComponent } from './space-tourism.component';
@@ -18,6 +19,7 @@ export default [
       },
       {
         path: 'destinations',
+        canActivate: [DestinationsGuard],
         children: [
           { path: '', redirectTo: '/destinations/moon', pathMatch: 'full' },
           {

@@ -15,7 +15,10 @@ export const spaceTourismFeature = createFeature({
   reducer: createReducer(
     initialState,
 
-    on(SpaceTourismActions.loadSpaceTourisms, (state) => state)
+    on(SpaceTourismActions.loadSpaceTourisms, (state, { destinations }) => ({
+      ...state,
+      destinations,
+    }))
   ),
 });
 
