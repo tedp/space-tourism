@@ -1,29 +1,17 @@
-import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { bootstrapApplication } from '@angular/platform-browser';
 
-import { importProvidersFrom } from '@angular/core';
-import { provideRouter, RouterModule } from '@angular/router';
-import { EffectsModule } from '@ngrx/effects';
-import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { provideRouter } from '@angular/router';
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import appRoutes from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      BrowserModule,
-      RouterModule,
-
-      // configure NgRx modules
-      StoreModule.forRoot({
-        router: routerReducer,
-      }),
-      StoreDevtoolsModule.instrument(),
-      StoreRouterConnectingModule.forRoot(),
-      StoreDevtoolsModule.instrument(),
-      EffectsModule.forRoot([])
-    ),
+    provideStore({ router: routerReducer }),
     provideRouter(appRoutes),
+    provideRouterStore(),
+    provideStoreDevtools(),
   ],
 });

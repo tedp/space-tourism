@@ -1,6 +1,6 @@
 import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
+import { provideState, StoreModule } from '@ngrx/store';
 import { CrewComponent } from './crew/crew.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { DestinationsGuard } from './guards/destinations.guard';
@@ -27,9 +27,7 @@ export default [
             component: DestinationsComponent,
           },
         ],
-        providers: [
-          importProvidersFrom(StoreModule.forFeature(spaceTourismFeature)),
-        ],
+        providers: [provideState(spaceTourismFeature)],
       },
       {
         path: 'crew',
