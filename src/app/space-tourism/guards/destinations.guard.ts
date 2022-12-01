@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { CanActivate, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { loadSpaceTourisms } from '../actions/space-tourism.actions';
 import { selectDestinations } from '../reducers/space-tourism.reducer';
 import { ContentServiceService } from '../services/content-service.service';
@@ -21,9 +16,10 @@ export class DestinationsGuard implements CanActivate {
   ) {}
 
   private isDestinationsInStore(): Observable<boolean> {
-    return this.store
-      .select(selectDestinations)
-      .pipe(map((destinations) => destinations.length > 0));
+    return this.store.select(selectDestinations).pipe(
+      take(1),
+      map((destinations) => destinations.length > 0)
+    );
   }
 
   private loadDestinationsIntoStore(): void {
@@ -31,10 +27,7 @@ export class DestinationsGuard implements CanActivate {
     this.store.dispatch(loadSpaceTourisms({ destinations }));
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
+  canActivate():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
