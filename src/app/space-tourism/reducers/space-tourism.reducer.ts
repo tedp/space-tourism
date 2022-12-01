@@ -1,8 +1,6 @@
-import { Action, createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import * as SpaceTourismActions from '../actions/space-tourism.actions';
 import { Destination } from '../services/content-service.service';
-
-export const spaceTourismFeatureKey = 'spaceTourism';
 
 export interface State {
   destinations: Destination[];
