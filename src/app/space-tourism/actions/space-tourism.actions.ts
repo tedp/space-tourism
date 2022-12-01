@@ -5,3 +5,8 @@ export const loadSpaceTourisms = createAction(
   '[SpaceTourism] Load SpaceTourisms',
   props<{ destinations: Destination[] }>()
 );
+
+export const loadCurrenDestinationName = createAction(
+  '[SpaceTourism] Load CurrenDestinationName',
+  props<{ destinationName: string }>()
+);

@@ -1,9 +1,10 @@
-import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
-import { provideState, StoreModule } from '@ngrx/store';
+import { provideState } from '@ngrx/store';
+
 import { CrewComponent } from './crew/crew.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { DestinationsGuard } from './guards/destinations.guard';
+import { SelectedDestinationGuard } from './guards/selected-destination.guard';
 import { IntroComponent } from './intro/intro.component';
 import { spaceTourismFeature } from './reducers/space-tourism.reducer';
 import { SpaceTourismComponent } from './space-tourism.component';
@@ -25,6 +26,7 @@ export default [
           {
             path: ':planet',
             component: DestinationsComponent,
+            canActivate: [SelectedDestinationGuard],
           },
         ],
         providers: [provideState(spaceTourismFeature)],

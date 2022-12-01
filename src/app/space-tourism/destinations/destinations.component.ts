@@ -14,6 +14,8 @@ import {
 } from '../services/content-service.service';
 import { selectRouteParam } from '../../router.selectors';
 import { selectDestinations } from '../reducers/space-tourism.reducer';
+import { loadCurrenDestinationName } from '../actions/space-tourism.actions';
+import { selectCurrentDestination } from '../selectors/space-tourism.selectors';
 
 @Component({
   selector: 'app-destinations',
@@ -23,19 +25,10 @@ import { selectDestinations } from '../reducers/space-tourism.reducer';
   styleUrls: ['./destinations.component.scss'],
 })
 export class DestinationsComponent {
-  selectedPlanet$: Observable<any>;
+  selectedPlanet$: Observable<string | undefined>;
   destinations$: Observable<Destination[]>;
-
-  constructor(
-    public contentService: ContentServiceService,
-    private router: Router,
-    private store: Store<State>
-  ) {
-    this.selectedPlanet$ = this.store.select(selectRouteParam('planet'));
-    this.destinations$ = this.store
-      .select(selectDestinations)
-      .pipe(tap((val) => console.log(val)));
-  }
+  currentDestination$: Observable<Destination | undefined>;
+  selectedPlanetName?: string;
 
   destinationTabs: Tab[] = [
     { name: 'moon' },
@@ -44,10 +37,23 @@ export class DestinationsComponent {
     { name: 'titan' },
   ];
 
+  constructor(
+    public contentService: ContentServiceService,
+    private router: Router,
+    private store: Store<State>
+  ) {
+    this.selectedPlanet$ = this.store.select(selectRouteParam('planet'));
+    this.destinations$ = this.store.select(selectDestinations);
+    this.currentDestination$ = this.store.select(selectCurrentDestination);
+  }
+
   selectPlanet(planetIndex: number) {
-    this.router.navigate([
-      'destinations',
-      this.destinationTabs[planetIndex].name,
-    ]);
+    this.selectedPlanetName = this.destinationTabs[planetIndex].name;
+    this.store.dispatch(
+      loadCurrenDestinationName({
+        destinationName: this.selectedPlanetName,
+      })
+    );
+    this.router.navigate(['destinations', this.selectedPlanetName]);
   }
 }
