@@ -6,6 +6,7 @@
 }
 
 .grid-container--technology {
+  padding-inline: 0;
   --flow-space: 2rem;
   grid-template-areas:
     "title"
@@ -15,6 +16,7 @@
 
   & > h1 {
     grid-area: title;
+    margin-inline: 1rem;
   }
 
   & > picture {
