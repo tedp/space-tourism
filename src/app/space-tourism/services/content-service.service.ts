@@ -50,6 +50,10 @@ export class ContentServiceService {
     return contentData.crew;
   }
 
+  getTechbologies() {
+    return contentData.technology;
+  }
+
   getBackgroundImage(
     url: string,
     orientation: 'portrait' | 'landscape' = 'portrait'

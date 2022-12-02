@@ -10,6 +10,7 @@ import { IntroComponent } from './intro/intro.component';
 import { spaceTourismFeature } from './reducers/space-tourism.reducer';
 import { SpaceTourismComponent } from './space-tourism.component';
 import { SelectedCrewGuard } from './guards/selected-crew.guard';
+import { TechnologyGuard } from './guards/technologies.guard';
 
 export default [
   {
@@ -46,12 +47,20 @@ export default [
         ],
       },
       {
-        path: 'crew',
-        component: DestinationsComponent,
-      },
-      {
         path: 'technology',
-        component: DestinationsComponent,
+        canActivate: [TechnologyGuard],
+        children: [
+          {
+            path: '',
+            redirectTo: '/technology/launch-vehicle',
+            pathMatch: 'full',
+          },
+          {
+            path: ':techName',
+            canActivate: [SelectedCrewGuard],
+            component: CrewComponent,
+          },
+        ],
       },
     ],
   },

@@ -1,5 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { Destination, Crew } from '../services/content-service.service';
+import {
+  Destination,
+  Crew,
+  Technology,
+} from '../services/content-service.service';
 
 export const loadSpaceTourisms = createAction(
   '[SpaceTourism] Load SpaceTourisms',
@@ -11,6 +15,11 @@ export const loadCrew = createAction(
   props<{ crew: Crew[] }>()
 );
 
+export const loadTechnologies = createAction(
+  '[SpaceTourism] Load Technologies',
+  props<{ technologies: Technology[] }>()
+);
+
 export const loadCurrenDestinationName = createAction(
   '[SpaceTourism] Load CurrenDestinationName',
   props<{ destinationName: string }>()
@@ -19,4 +28,9 @@ export const loadCurrenDestinationName = createAction(
 export const loadCurrenCrewName = createAction(
   '[SpaceTourism] Load CurrenCrewName',
   props<{ crewName: string }>()
+);
+
+export const loadCurrenTechnologyName = createAction(
+  '[SpaceTourism] Load CurrenTechnologyName',
+  props<{ technologyName: string }>()
 );
