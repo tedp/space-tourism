@@ -1,6 +1,6 @@
 // Dot indicators
 
-.dot-indicators-style .dot-indicators > * {
+.small-dot-indicators-style .dot-indicators > * {
   cursor: pointer;
   border: 0;
   border-radius: 50%;
@@ -8,12 +8,12 @@
   background-color: hsl(var(--clr-wh1te-400) / 0.25);
 }
 
-.dot-indicators-style .dot-indicators > *:hover,
-.dot-indicators-style .dot-indicators > *:focus {
+.small-dot-indicators-style .dot-indicators > *:hover,
+.small-dot-indicators-style .dot-indicators > *:focus {
   background-color: hsl(var(--clr-wh1te-400) / 0.5);
 }
 
-.dot-indicators-style .dot-indicators > [aria-selected="true"] {
+.small-dot-indicators-style .dot-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-wh1te-400) / 1);
 }
 

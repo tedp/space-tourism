@@ -11,9 +11,20 @@ export const selectCurrentDestination = createSelector(
         upperCase(destination.name) === upperCase(currentDestinationName)
     )
 );
+
 export const selectCurrentCrew = createSelector(
   spaceTourismFeature.selectCrew,
   spaceTourismFeature.selectCurrentCrewName,
   (crews, currentCrewName) =>
     crews.find((crew) => upperCase(crew.name) === upperCase(currentCrewName))
+);
+
+export const selectCurrentTechnology = createSelector(
+  spaceTourismFeature.selectTechnologies,
+  spaceTourismFeature.selectCurrentTechnologyName,
+  (technologies, currentTechName) =>
+    technologies.find(
+      (technologies) =>
+        upperCase(technologies.name) === upperCase(currentTechName)
+    )
 );

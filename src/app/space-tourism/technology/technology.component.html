@@ -1,1 +1,39 @@
-<p>technology works!</p>
+<div class="grid-container grid-container--crew flow" style="height: 100%">
+  <h1 class="numbered-title">
+    <span aria-hidden="true">03</span> Space launch 101s
+  </h1>
+
+  <app-tabs
+    class="small-dot-indicators-style"
+    [tabs]="tabs"
+    [selectedTabName]="(selectedTechnologyName$ | async)!"
+    [showTabLabels]="false"
+    (selectedTabChanged)="selectTechnology($event)"
+  ></app-tabs>
+
+  <article class="crew-details flow">
+    <header class="flow flow--space-small">
+      <h2 class="fs-600 ff-serif uppercase">
+        <!-- {{ (currentTechnology$ | async)?.role }} -->
+      </h2>
+      <p class="fs-700 uppercase ff-serif">
+        {{ (currentTechnology$ | async)?.name }}
+      </p>
+    </header>
+    <p>
+      <!-- {{ (currentTechnology$ | async)?.bio }} -->
+    </p>
+  </article>
+
+  <!-- <picture *ngIf="currentTechnology$ | async as currentTechnology">
+    <source
+      [attr.srcset]="'.' + currentTechnology.images.png"
+      type="image/webp"
+    />
+    <img
+      [attr.src]="'.' + currentTechnology.images.webp"
+      type="image/png"
+      alt="the moon"
+    />
+  </picture> -->
+</div>

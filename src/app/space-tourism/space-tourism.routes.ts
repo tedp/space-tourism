@@ -11,6 +11,7 @@ import { spaceTourismFeature } from './reducers/space-tourism.reducer';
 import { SpaceTourismComponent } from './space-tourism.component';
 import { SelectedCrewGuard } from './guards/selected-crew.guard';
 import { TechnologyGuard } from './guards/technologies.guard';
+import { TechnologyComponent } from './technology/technology.component';
 
 export default [
   {
@@ -58,7 +59,7 @@ export default [
           {
             path: ':techName',
             canActivate: [SelectedCrewGuard],
-            component: CrewComponent,
+            component: TechnologyComponent,
           },
         ],
       },

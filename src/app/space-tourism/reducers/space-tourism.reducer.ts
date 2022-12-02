@@ -12,6 +12,7 @@ export interface State {
   technologies: Technology[];
   currentDestinationName: string | undefined;
   currentCrewName: string | undefined;
+  currentTechnologyName: string | undefined;
 }
 
 export const initialState: State = {
@@ -20,6 +21,7 @@ export const initialState: State = {
   technologies: [],
   currentDestinationName: undefined,
   currentCrewName: undefined,
+  currentTechnologyName: undefined,
 };
 
 export const spaceTourismFeature = createFeature({
@@ -65,4 +67,5 @@ export const {
   selectTechnologies, // feature selector
   selectCurrentDestinationName, // feature selector
   selectCurrentCrewName, // feature selector
+  selectCurrentTechnologyName, // feature selector
 } = spaceTourismFeature;

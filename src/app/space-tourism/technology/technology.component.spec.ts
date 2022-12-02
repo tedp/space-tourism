@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TechnologyComponent } from './technology.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('TechnologyComponent', () => {
   let component: TechnologyComponent;
@@ -8,9 +9,9 @@ describe('TechnologyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ TechnologyComponent ]
-    })
-    .compileComponents();
+      imports: [TechnologyComponent],
+      providers: [provideMockStore()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TechnologyComponent);
     component = fixture.componentInstance;

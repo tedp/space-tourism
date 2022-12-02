@@ -1,3 +1,71 @@
+@use "../../sass/abstracts" as *;
+
 :host {
   display: block;
+  height: 100%;
+}
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas:
+    "title"
+    "image"
+    "slider"
+    "content";
+
+  & > h1 {
+    grid-area: title;
+  }
+
+  & > picture {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
+  }
+
+  & > .crew-details {
+    grid-area: content;
+  }
+
+  & > app-tabs {
+    grid-area: slider;
+  }
+}
+
+.crew-details {
+  & > h2 {
+    font-weight: 700;
+    color: hsl(var(--clr-wh1te-400) / 0.5);
+  }
+}
+
+@include mq(medium) {
+  .grid-container--crew {
+    grid-template-areas:
+      "title"
+      "content"
+      "slider"
+      "image";
+    padding-bottom: 0;
+  }
+}
+
+@include mq(big) {
+  .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
+        1rem,
+        1fr
+      );
+    justify-items: start;
+    grid-template-areas:
+      ". title image ."
+      ". content image ."
+      ". slider image .";
+
+    & > picture {
+      grid-column: span 2;
+      align-self: end;
+      max-width: 100%;
+    }
+  }
 }
