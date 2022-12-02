@@ -22,7 +22,7 @@ export class TabsComponent implements OnInit {
   @Input() tabs: Tab[] = [];
   @Input() selectedTabIndex = 0;
   @Input() selectedTabName?: string;
-  @Input() showTabLabels = true;
+  @Input() labelStyle: 'none' | 'numbered' | 'tab-name' = 'tab-name';
 
   @Output() selectedTabChanged = new EventEmitter<number>();
 

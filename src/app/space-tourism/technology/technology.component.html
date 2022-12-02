@@ -4,26 +4,26 @@
   </h1>
 
   <app-tabs
-    class="small-dot-indicators-style"
+    class="numbered-dot-indicators-style"
     [tabs]="tabs"
     [selectedTabName]="(selectedTechnologyName$ | async)!"
-    [showTabLabels]="false"
+    labelStyle="numbered"
     (selectedTabChanged)="selectTechnology($event)"
   ></app-tabs>
 
-  <article class="crew-details flow">
+  <!-- <article class="crew-details flow">
     <header class="flow flow--space-small">
       <h2 class="fs-600 ff-serif uppercase">
-        <!-- {{ (currentTechnology$ | async)?.role }} -->
+        {{ (currentTechnology$ | async)?.role }}
       </h2>
       <p class="fs-700 uppercase ff-serif">
         {{ (currentTechnology$ | async)?.name }}
       </p>
     </header>
     <p>
-      <!-- {{ (currentTechnology$ | async)?.bio }} -->
+      {{ (currentTechnology$ | async)?.bio }}
     </p>
-  </article>
+  </article> -->
 
   <!-- <picture *ngIf="currentTechnology$ | async as currentTechnology">
     <source

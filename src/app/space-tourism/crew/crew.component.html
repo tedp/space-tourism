@@ -7,7 +7,7 @@
     class="small-dot-indicators-style"
     [tabs]="tabs"
     [selectedTabName]="(selectedCrewName$ | async)!"
-    [showTabLabels]="false"
+    [labelStyle]="'none'"
     (selectedTabChanged)="selectCrew($event)"
   ></app-tabs>
 

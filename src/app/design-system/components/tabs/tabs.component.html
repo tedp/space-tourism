@@ -12,6 +12,18 @@
     class="uppercase ff-sans-cond text-light-400 letter-spacing-2"
     (click)="selectTab(i)"
   >
-    <span [ngClass]="!showTabLabels ? 'sr-only' : ''">{{ tab.name }}</span>
+    <span *ngIf="labelStyle === 'none'; else visibleLabel" class="sr-only">{{
+      tab.name
+    }}</span>
+
+    <ng-template #visibleLabel>
+      <span *ngIf="labelStyle === 'numbered'; else tabNameTemplate">{{
+        i + 1
+      }}</span>
+    </ng-template>
+
+    <ng-template #tabNameTemplate>
+      <span>{{ tab.name }}</span>
+    </ng-template>
   </button>
 </div>
