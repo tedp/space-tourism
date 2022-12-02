@@ -20,6 +20,10 @@
   letter-spacing: 2.35px;
 }
 
+.fw-faded {
+  color: hsl(var(--clr-wh1te-400) / 0.25);
+}
+
 .uppercase {
   text-transform: uppercase;
 }

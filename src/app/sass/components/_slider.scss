@@ -1,4 +1,4 @@
-// Dot indicators
+@use "../../sass/abstracts" as *;
 
 .small-dot-indicators-style .dot-indicators > * {
   cursor: pointer;
@@ -20,14 +20,14 @@
 // Number indicators
 
 .numbered-dot-indicators-style .dot-indicators {
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .numbered-dot-indicators-style .dot-indicators > * {
   cursor: pointer;
   border: 0.1rem solid hsl(var(--clr-wh1te-400) / 0.25);
   border-radius: 50%;
-  width: 2.5em;
+  width: 4.5em;
   aspect-ratio: 1;
   background-color: hsl(var(--clr-dark-400) / 0.25);
 }
@@ -41,4 +41,10 @@
   border: 0.1rem solid hsl(var(--clr-wh1te-400) / 1);
   color: hsl(var(--clr-dark-400) / 1);
   background-color: hsl(var(--clr-wh1te-400) / 1);
+}
+
+@include mq(big) {
+  .numbered-dot-indicators-style .dot-indicators {
+    flex-direction: column;
+  }
 }

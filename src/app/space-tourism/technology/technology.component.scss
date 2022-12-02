@@ -19,8 +19,6 @@
 
   & > picture {
     grid-area: image;
-    max-width: 60%;
-    border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
   }
 
   & > .technology-details {
@@ -43,28 +41,32 @@
   .grid-container--technology {
     grid-template-areas:
       "title"
-      "content"
+      "image"
       "slider"
-      "image";
+      "content";
     padding-bottom: 0;
+    align-items: start;
   }
 }
 
 @include mq(big) {
   .grid-container--technology {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
-        1rem,
-        1fr
-      );
+    grid-template-columns:
+      minmax(1rem, 1fr) minmax(0, 8rem) minmax(0, 30rem) minmax(0, 30rem)
+      minmax(1rem, 1fr);
     justify-items: start;
     grid-template-areas:
-      ". title image ."
-      ". content image ."
-      ". slider image .";
+      ". title  title   title ."
+      ".    .     .     image ."
+      ". slider content image ."
+      ".    .     .     image .";
 
     & > picture {
+      position: relative;
+      left: 3rem;
       grid-column: span 2;
-      align-self: end;
+      justify-self: end;
+      align-self: start;
       max-width: 100%;
     }
   }
