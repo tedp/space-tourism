@@ -25,11 +25,12 @@
     </p>
   </article>
 
-  <picture>
-    <source srcset="../assets/crew/image-douglas-hurley.png" type="image/png" />
+  <picture *ngIf="currentCrew$ | async as currentCrew">
+    <source [attr.srcset]="'.' + currentCrew.images.png" type="image/webp" />
     <img
-      src="../assets/crew/image-douglas-hurley.png"
-      [attr.alt]="(currentCrew$ | async)?.name"
+      [attr.src]="'.' + currentCrew.images.webp"
+      type="image/png"
+      alt="the moon"
     />
   </picture>
 </div>
