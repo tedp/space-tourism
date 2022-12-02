@@ -5,7 +5,7 @@
   height: 100%;
 }
 
-.grid-container--crew {
+.grid-container--technology {
   --flow-space: 2rem;
   grid-template-areas:
     "title"
@@ -23,7 +23,7 @@
     border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
   }
 
-  & > .crew-details {
+  & > .technology-details {
     grid-area: content;
   }
 
@@ -32,7 +32,7 @@
   }
 }
 
-.crew-details {
+.technology-details {
   & > h2 {
     font-weight: 700;
     color: hsl(var(--clr-wh1te-400) / 0.5);
@@ -40,7 +40,7 @@
 }
 
 @include mq(medium) {
-  .grid-container--crew {
+  .grid-container--technology {
     grid-template-areas:
       "title"
       "content"
@@ -51,7 +51,7 @@
 }
 
 @include mq(big) {
-  .grid-container--crew {
+  .grid-container--technology {
     grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
         1rem,
         1fr

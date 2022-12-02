@@ -55,7 +55,15 @@ export const spaceTourismFeature = createFeature({
     on(SpaceTourismActions.loadCurrenCrewName, (state, { crewName }) => ({
       ...state,
       currentCrewName: crewName,
-    }))
+    })),
+
+    on(
+      SpaceTourismActions.loadCurrenTechnologyName,
+      (state, { technologyName }) => ({
+        ...state,
+        currentTechnologyName: technologyName,
+      })
+    )
   ),
 });
 
