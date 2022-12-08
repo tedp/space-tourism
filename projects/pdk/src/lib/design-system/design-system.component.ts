@@ -4,6 +4,7 @@ import {
   TabsComponent,
   SliderLargeComponent,
   SliderSmallComponent,
+  Tab,
 } from './components';
 
 @Component({
@@ -18,4 +19,22 @@ import {
   templateUrl: './design-system.component.html',
   styleUrls: ['./design-system.component.scss'],
 })
-export class DesignSystemComponent {}
+export class DesignSystemComponent {
+  underlineTabs: Tab[] = [
+    { name: 'Active' },
+    { name: 'Tab 2' },
+    { name: 'Tab 3' },
+  ];
+
+  smallDotTabs: Tab[] = [
+    { name: 'Active' },
+    { name: 'Tab 2' },
+    { name: 'Tab 3' },
+  ];
+
+  numberedDotTabs: Tab[] = [
+    { name: 'Active' },
+    { name: 'Tab 2' },
+    { name: 'Tab 3' },
+  ];
+}

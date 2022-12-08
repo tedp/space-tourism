@@ -118,7 +118,7 @@
 
     <app-nav></app-nav>
 
-    <div class="flex">
+    <div class="flex" style="justify-content: space-between">
       <div style="margin-top: 5rem">
         <!-- explore button -->
         <a
@@ -130,11 +130,25 @@
 
       <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
         <!-- Tabs 14.10.0 -->
-        <app-tabs></app-tabs>
+        <app-tabs
+          class="underline-indicator-style"
+          [tabs]="underlineTabs"
+          [selectedTabIndex]="0"
+        ></app-tabs>
         <!-- Dots -->
-        <app-slider-small></app-slider-small>
+        <app-tabs
+          class="small-dot-indicators-style"
+          [tabs]="smallDotTabs"
+          [selectedTabIndex]="0"
+          [labelStyle]="'none'"
+        ></app-tabs>
         <!-- Numbers -->
-        <app-slider-large></app-slider-large>
+        <app-tabs
+          class="numbered-dot-indicators-style"
+          [tabs]="numberedDotTabs"
+          [selectedTabIndex]="0"
+          labelStyle="numbered"
+        ></app-tabs>
       </div>
     </div>
   </section>
