@@ -7,6 +7,6 @@ export default [
   },
   {
     path: 'design-system',
-    loadChildren: () => import('./design-system/design-system.routes'),
+    loadChildren: () => import('pdk').then((m) => m.DesignSystemRoutingModule),
   },
 ] as Routes;

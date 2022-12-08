@@ -4,10 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import {
-  Tab,
-  TabsComponent,
-} from '../../design-system/components/tabs/tabs.component';
+import { Tab, TabsComponent } from 'pdk';
 import { selectRouteParam } from '../../router.selectors';
 import { loadCurrenTechnologyName } from '../actions/space-tourism.actions';
 import { selectTechnologies, State } from '../reducers/space-tourism.reducer';

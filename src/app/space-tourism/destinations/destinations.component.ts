@@ -3,10 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
-import {
-  Tab,
-  TabsComponent,
-} from '../../design-system/components/tabs/tabs.component';
+import { Tab, TabsComponent } from 'pdk';
 import { State } from '../../reducers/index';
 import {
   ContentServiceService,

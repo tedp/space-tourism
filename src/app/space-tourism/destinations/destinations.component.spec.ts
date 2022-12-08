@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Tab } from '../../design-system/components/tabs/tabs.component';
+import { Tab } from 'pdk';
 import { DestinationsComponent } from './destinations.component';
 import { MockState, MockStore, provideMockStore } from '@ngrx/store/testing';
 import { State, reducers } from '../../reducers/index';

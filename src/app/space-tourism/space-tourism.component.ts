@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import {
-  NavComponent,
-  NavLink,
-} from '../design-system/components/nav/nav.component';
+import { NavComponent, NavLink } from 'pdk';
 import { ContentServiceService } from './services/content-service.service';
 
 @Component({

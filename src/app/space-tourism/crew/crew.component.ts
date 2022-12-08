@@ -1,10 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import {
-  TabsComponent,
-  Tab,
-} from '../../design-system/components/tabs/tabs.component';
+import { TabsComponent, Tab } from 'pdk';
 import { Observable } from 'rxjs';
 import { Crew } from '../services/content-service.service';
 import { Router } from '@angular/router';
