@@ -3,7 +3,7 @@
   style="height: 100%"
 >
   <h1 class="numbered-title">
-    <span aria-hidden="true">01</span> Pick your destination
+    <span aria-hidden="true">01</span> <span i18n>Pick your destination</span>
   </h1>
 
   <picture *ngIf="currentDestination$ | async as currentDestination">
@@ -43,13 +43,13 @@
 
     <div class="destination-meta flex">
       <div>
-        <h3 class="text-accent fs-200 uppercase">Avg. distance</h3>
+        <h3 class="text-accent fs-200 uppercase" i18n>Avg. distance</h3>
         <p class="ff-serif uppercase">
           {{ (currentDestination$ | async)?.distance }}
         </p>
       </div>
       <div>
-        <h3 class="text-accent fs-200 uppercase">Est. travel time</h3>
+        <h3 class="text-accent fs-200 uppercase" i18n>Est. travel time</h3>
         <p class="ff-serif uppercase">
           {{ (currentDestination$ | async)?.travel }}
         </p>
