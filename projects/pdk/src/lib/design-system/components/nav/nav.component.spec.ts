@@ -52,7 +52,17 @@ describe('NavComponent', () => {
   describe('selected navigation', () => {
     it('when navigation selected should change selected navigation', fakeAsync(() => {
       jest.spyOn(router, 'navigate');
-      component.menuOpen = true;
+
+      const menuButtonClosed = fixture.debugElement.query(
+        By.css('button[aria-expanded="false"]')
+      );
+
+      menuButtonClosed.nativeElement.click();
+      fixture.detectChanges();
+      const menuButtonOpen = fixture.debugElement.query(
+        By.css('button[aria-expanded="true"]')
+      );
+
       const navItems = fixture.debugElement.queryAll(
         By.css('.primary-navigation a')
       );
@@ -60,6 +70,7 @@ describe('NavComponent', () => {
       navItems[0].nativeElement.click();
       tick();
 
+      expect(menuButtonOpen).not.toBeNull();
       expect(navItems.length).toEqual(2);
       expect(location.path()).toEqual('/link-nav1');
       expect(component.menuOpen).toEqual(false);
